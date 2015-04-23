@@ -1,6 +1,6 @@
 %$$$ jpr.bst (02.27.2013)
 %$$$ update (07.05.2013)
-%$$$ update (11.17.2014) // Tweaks made by Allan Dafoe (Yale University).
+%$$$ update (11.17.2014) // Tweaks made by Allan Dafoe and Baobao Zhang (Yale University).
 % This is a fairly crude hack of newapa.bst to conform with the citation 
 % and bibliography standards of Journal of Peace Research, as of 2012.
 %
