@@ -1,6 +1,6 @@
-# List of Things To Do
+List of Things To Do for JPR .bst file
+==========================================
 
-# .bst file
 [x] Middle names should not be reduced to just a first letter. Now, ‘Nils Petter Gleditsch’ is reduced to ‘Nils P Gleditsch’, ‘J David Singer’ to ‘J D Singer’, and ‘Bruce Bueno de Mesquita’ would be reduced to ‘Bruce B Mesquita’. This should be changed.
 
 [x] In titles that include a question mark, the preceding letter is automatically converted to lower case. E.g. ‘Firing mortars? there’s an app for that.’ and ‘Empowering activists or autocrats? internet and authoritarian survival.’ This should be corrected for question marks as it has already been done for colon. 
@@ -27,12 +27,16 @@ Reply: It's a bit tricky to convert the state names from long to the two-letter 
 
 [ ] There is currently no category for news articles, working papers or websites. Can these categories be added? Here is the JPR format: 
 Newspaper articles should be in the following form: 
+
 Polgreen, Lydia (2007) Raid on African Union imperils Darfur talks. International Herald Tribune 3 October: 2.
 Perlroth, Nicole (2013) Syria loses access to the internet. New York Times Bits Blog 7 May (http://bits.blogs.nytimes.com/2013/05/07/syria-loses-access-to-the-internet/).
+
 Working papers should be in the following form:
 Morrison, Kevin (2010) Oil, conflict, and stability. Working paper. Department of Government, Cornell University (http://politics.as.nyu.edu/docs/IO/14563/Morrison.pdf).
+
 Web references: 
 Central Intelligence Agency (2013) The World Factbook (https://www.cia.gov/library/ publications/the-world-factbook/). 
+
 World Bank (2011) World Development Indicators (http://data.worldbank.org/data-catalog/world-development-indicators).  
 
 # instructions for submitters
