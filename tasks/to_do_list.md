@@ -21,23 +21,24 @@ Ex. ‘Gleditsch, Nils Petter; Peter Wallensteen; Mikael Eriksson; Margareta Sol
 
 # additions to the .bst file
 
-[x] References to books and book chapters should include city of publication, two-letter code for state if published in the United States (except for the city of New York), as well as publisher, in the following way: ‘Princeton, NJ: Princeton University Press’. There should not be full stop between the letters in the two-letter state code. Can this format be ensured automatically?
+[?] References to books and book chapters should include city of publication, two-letter code for state if published in the United States (except for the city of New York), as well as publisher, in the following way: ‘Princeton, NJ: Princeton University Press’. There should not be full stop between the letters in the two-letter state code. Can this format be ensured automatically?
 
-Reply: It's a bit tricky to convert the state names from long to the two-letter code. I could write a Python script that will convert people's .bib files to the right address format. 
+*POSSIBLE SOLUTION*: It's a bit tricky to convert the state names from long to the two-letter code. I could write a Python script that will convert people's .bib files to the right address format. 
 
 [ ] There is currently no category for news articles, working papers or websites. Can these categories be added? Here is the JPR format: 
-Newspaper articles should be in the following form: 
+
+1) Newspaper articles should be in the following form: 
 
 Polgreen, Lydia (2007) Raid on African Union imperils Darfur talks. International Herald Tribune 3 October: 2.
 Perlroth, Nicole (2013) Syria loses access to the internet. New York Times Bits Blog 7 May (http://bits.blogs.nytimes.com/2013/05/07/syria-loses-access-to-the-internet/).
 
-Working papers should be in the following form:
+2) Working papers should be in the following form:
 Morrison, Kevin (2010) Oil, conflict, and stability. Working paper. Department of Government, Cornell University (http://politics.as.nyu.edu/docs/IO/14563/Morrison.pdf).
 
-Web references: 
+3) Web references: 
 Central Intelligence Agency (2013) The World Factbook (https://www.cia.gov/library/ publications/the-world-factbook/). 
 
-World Bank (2011) World Development Indicators (http://data.worldbank.org/data-catalog/world-development-indicators).  
+4) World Bank (2011) World Development Indicators (http://data.worldbank.org/data-catalog/world-development-indicators).  
 
 # instructions for submitters
 
