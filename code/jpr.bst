@@ -1,24 +1,18 @@
 %$$$ jpr.bst (02.27.2013)
 %$$$ update (07.05.2013)
-%$$$ update (11.17.2014) // Tweaks made by Allan Dafoe and Baobao Zhang (Yale University).
+%$$$ update (11.17.2014) 
+% // Tweaks made by Allan Dafoe and Baobao Zhang (Yale University).
 %
 % This *.bst file will allow the following JPR citations.
 % 1) ARTICLE
 % 2) BOOK
 % 3) INCOLLECTION
-% 4) UNPUBLISHED
+% 4) UNPUBLISHED (please use techreport)
+% 5) WEB RESOURCES (please use misc)
+% 6) NEWS ARTICLES (please use articlenews)
 %
-% Fortunately, these are the four most common citations in political 
-% science research.
-%
-% Comments on using this *.bst file are available on my website.
-% http://svmiller.com/miscellany/journal-of-peace-research-bst-file/
-%
-% Users of this *.bst file may find their own issues. I cannot offer total support for it. That said, 
-% I am willing to listen to feedback. You can e-mail me at svmille@clemson.edu.
-%
-% If you find this *.bst file useful, please feel free to disseminate it. I ask only for attribution
-% under a creative commons license in return.
+% Original GitHub repo by Steven Miller: https://github.com/svmiller/jpr-bst-file
+% New GitHub fork by Baobao Zhang: https://github.com/13bzhang/jpr-bst-file
 
 
 ENTRY
