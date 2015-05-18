@@ -1,13 +1,14 @@
-@ARTICLE{Vickrey1961,
-AUTHOR = {William Vickrey and Henry Norman McKinney and Liz Rosen},
-TITLE = {Counterspeculation, auctions and sealed tenders? What are the options?},
-JOURNAL = {Journal of Finance},
-YEAR = {1961},
-volume = {16},
-number = {2},
-pages = {8--37},
-URL = {www.myfinance.com}
-} 
+@article{tomz2013public,
+  title={Public Opinion and the Democratic Peace},
+  author={Tomz, Michael and Weeks, Jessica},
+  journal={American Political Science Review},
+  volume={107},
+  number={4},
+  pages={849--865},
+  year={2013},
+  publisher={Cambridge Univ Press}
+}
+
  
 @BOOK{Golumbic2004,
 AUTHOR = {Mally Thompson Golumbic and Uri Isaacs and Rachel Mae and Sarah Li},
@@ -29,3 +30,30 @@ pages = {99--109}
   year        = 2004,
   pages = {8--39}
 }
+
+@techreport{Norton2014,
+author = {Lynn Norton and Bert Upton},
+title = {A New Theory of Civil Conflict},
+type = {Working Paper},
+institution = {Department of Politics, Working Papers University},
+year = {2014},
+URL = {www.working.edu/norton/newtheory.pdf}
+}
+
+@misc{WorldBank,
+       author = "{World Bank}",
+       title = "{2012 World Bank Report}",
+       year = {2012},
+       url = {www.worldbank.org}
+}
+
+
+@articlenews{Polgreen2007,
+author = {Lydia Polgreen},
+title = {Raid on African Union imperils Darfur talks},
+journal = {International Herald Tribune},
+year = {2007},
+month = {3 October:2},
+URL = {\url{http://www.nytimes.com/2007/10/02/world/africa/02darfur.html?_r=0"}}
+}
+

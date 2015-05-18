@@ -25,20 +25,22 @@ Ex. ‘Gleditsch, Nils Petter; Peter Wallensteen; Mikael Eriksson; Margareta Sol
 
 *POSSIBLE SOLUTION*: It's a bit tricky to convert the state names from long to the two-letter code. I could write a Python script that will convert people's .bib files to the right address format. 
 
-* [ ] There is currently no category for news articles, working papers or websites. Can these categories be added? Here is the JPR format: 
+* [x] There is currently no category for news articles, working papers or websites. Can these categories be added? Here is the JPR format: 
 
-1. Newspaper articles should be in the following form: 
+1. [x] Newspaper articles should be in the following form: 
 
 Polgreen, Lydia (2007) Raid on African Union imperils Darfur talks. International Herald Tribune 3 October: 2.
 Perlroth, Nicole (2013) Syria loses access to the internet. New York Times Bits Blog 7 May (http://bits.blogs.nytimes.com/2013/05/07/syria-loses-access-to-the-internet/).
 
-2. Working papers should be in the following form:
+2. [x] Working papers should be in the following form:
+
 Morrison, Kevin (2010) Oil, conflict, and stability. Working paper. Department of Government, Cornell University (http://politics.as.nyu.edu/docs/IO/14563/Morrison.pdf).
 
-3. Web references: 
+3. [x] Web references: 
+
 Central Intelligence Agency (2013) The World Factbook (https://www.cia.gov/library/ publications/the-world-factbook/). 
 
-4) World Bank (2011) World Development Indicators (http://data.worldbank.org/data-catalog/world-development-indicators).  
+World Bank (2011) World Development Indicators (http://data.worldbank.org/data-catalog/world-development-indicators).  
 
 # instructions for submitters
 

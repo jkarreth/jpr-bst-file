@@ -11,10 +11,24 @@ Grandstrand, Olson (2004) Innovation and intellectual property rights.
 \newblock In: James Fagerberg \& Drew~Trenson Mowery (eds) {\em Oxford Handbook
   of Innovation}. Oxford: Oxford University Press,  8--39.
 
-\bibitem[\protect\citeauthoryear{Vickrey, McKinney \& Rosen}{Vickrey, McKinney
-  \& Rosen}{1961}]{Vickrey1961}
-Vickrey, William, Henry~N. McKinney  \& Liz Rosen (1961) Counterspeculation,
-  auctions and sealed tenders? what are the options?
-\newblock {\em Journal of Finance} { 16\/}(2): 8--37 ({www.myfinance.com}).
+\bibitem[\protect\citeauthoryear{Norton \& Upton}{Norton \&
+  Upton}{2014}]{Norton2014}
+Norton, Lynn  \& Bert Upton (2014) A new theory of civil conflict.
+\newblock Working paper.
+\newblock Department of Politics, Working Papers University
+  ({www.working.edu/norton/newtheory.pdf}).
+
+\bibitem[\protect\citeauthoryear{Polgreen}{Polgreen}{2007}]{Polgreen2007}
+Polgreen, Lydia (2007) Raid on african union imperils darfur talks.
+\newblock {\em International Herald Tribune} 3 October:2
+  ({\url{http://www.nytimes.com/2007/10/02/world/africa/02darfur.html?_r=0"}}).
+
+\bibitem[\protect\citeauthoryear{Tomz \& Weeks}{Tomz \&
+  Weeks}{2013}]{tomz2013public}
+Tomz, Michael  \& Jessica Weeks (2013) Public opinion and the democratic peace.
+\newblock {\em American Political Science Review} { 107\/}(4): 849--865.
+
+\bibitem[\protect\citeauthoryear{{World Bank}}{{World Bank}}{2012}]{WorldBank}
+{World Bank} (2012) {2012 World Bank Report} ({www.worldbank.org}).
 
 \end{thebibliography}
