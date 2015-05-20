@@ -34,6 +34,30 @@ Here is the explanation for the separators in `setcitestyle`:
 * Between years with common author: yysep
 * Next before post-note: notesep
 
+### Inline Citation
+
+For inline citations, use `\citep{citekey}` to cite with parentheses and `\cite{citekey}` to cite without. 
+
+#### `\citep`
+
+```
+Empirical evidence from lab experiments suggests this theory is not implausible \citep{smith2000}. 
+
+```
+produces:
+
+Empirical evidence from lab experiments suggests this theory is not implausible (Smith, 2000).
+
+#### `\cite`
+
+```
+\cite{smith2000} suggests this theory is not implausible . 
+```
+
+produces:
+
+Smith (2000) suggests this theory is not implausible.
+
 ### BibTeX
 
 In your .bib document, you can include the following types of references:
@@ -147,3 +171,8 @@ Code: https://github.com/13bzhang/jpr-bst-file/blob/master/code/jpr.bst
 Test results: https://github.com/13bzhang/jpr-bst-file/blob/master/tests/my_test.pdf
 
 To-do list: https://github.com/13bzhang/jpr-bst-file/blob/master/tasks/to_do_list.md
+
+### Updates Coming Soon
+
+1. A full LaTeX style guide for _JPR_ 
+2. A Python script to make sure that the `address` field in .bib documents confirms to the style guide. 
