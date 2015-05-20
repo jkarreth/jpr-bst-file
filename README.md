@@ -42,7 +42,6 @@ For inline citations, use `\citep{citekey}` to cite with parentheses and `\cite{
 
 ```
 Empirical evidence from lab experiments suggests this theory is not implausible \citep{smith2000}. 
-
 ```
 produces:
 
