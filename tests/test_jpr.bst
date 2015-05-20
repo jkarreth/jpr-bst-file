@@ -1,6 +1,8 @@
 %$$$ jpr.bst (02.27.2013)
 %$$$ update (07.05.2013)
 %$$$ update (11.17.2014) 
+%$$$ update (05.20.2015) 
+% // Original version by Steven Miller
 % // Tweaks made by Allan Dafoe and Baobao Zhang (Yale University).
 %
 % This *.bst file will allow the following JPR citations.
@@ -419,7 +421,8 @@ FUNCTION {format.rem.names}
       format.grepmi               % <-----
       #1 f format.name$ 't :=    
       nameptr #1 >
-    { namesleft #1 >
+      {numnames #4 <
+        {namesleft #1 >
         { ", " * t * }
         { t "others" =
         { " et~al." * }
@@ -428,13 +431,34 @@ FUNCTION {format.rem.names}
         }
       if$
     }
-    't
-      if$
-      nameptr #1 + 'nameptr :=
-      namesleft #1 - 'namesleft :=
+      { nameptr #3 <
+              { "; " * t * }
+        { namesleft #1 >
+              { ", " * t * }
+               { numnames #2 >
+                    { "  " * }
+                    'skip$
+                  if$
+                  t "others" =
+                        { " et~al." * }
+%                        { " and " * t * }
+                        { " \& " * t * }
+                      if$
+                }
+               if$
+             }
+          if$
+        }
+        if$
+        }
+            't
+        if$
+        nameptr #1 + 'nameptr :=          % nameptr += 1;
+        namesleft #1 - 'namesleft :=      % namesleft =- 1;
     }
   while$
 }
+
 
 FUNCTION {format.authors}
 { author empty$

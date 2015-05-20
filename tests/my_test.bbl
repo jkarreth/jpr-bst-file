@@ -1,34 +1,37 @@
 \begin{thebibliography}{}
 
-\bibitem[\protect\citeauthoryear{Golumbic, Isaacs, Mae \& Li}{Golumbic
-  et~al.}{2004}]{Golumbic2004}
-Golumbic, Mally~T., Uri Isaacs, Rachel Mae  \& Sarah Li (2004) {\em {
-  Algorithmic Graph Theory and Perfect Graphs\/} (2nd Edition ed.).}
-\newblock New York: Elsevier Science.
+\bibitem[\protect\citeauthoryear{Anderson, Burt \& Cindle}{Anderson, Burt \&
+  Cindle}{2014}]{journalarticle}
+Anderson, Annie, Bobby Burt  \& Catherine~C. Cindle (2014) This is a journal
+  article.
+\newblock {\em Journal Article} { 1\/}(1): 1--10.
 
-\bibitem[\protect\citeauthoryear{Grandstrand}{Grandstrand}{2004}]{Grandstrand2004}
-Grandstrand, Olson (2004) Innovation and intellectual property rights.
-\newblock In: James Fagerberg \& Drew~Trenson Mowery (eds) {\em Oxford Handbook
-  of Innovation}. Oxford: Oxford University Press,  8--39.
+\bibitem[\protect\citeauthoryear{Dee, East, Fitz \& Graham}{Dee
+  et~al.}{2004}]{book}
+Dee, Devin; Ellen East, Fred~F. Fitz   \& Genny Graham (2004) {\em { Book\/}
+  (2nd Edition ed.).}
+\newblock New Have, CT: Book Publisher.
 
-\bibitem[\protect\citeauthoryear{Norton \& Upton}{Norton \&
-  Upton}{2014}]{Norton2014}
-Norton, Lynn  \& Bert Upton (2014) A new theory of civil conflict.
+\bibitem[\protect\citeauthoryear{Henri}{Henri}{2004}]{incollection}
+Henri, Harry (2004) An essay in a book.
+\newblock In: Ida Inman (ed.) {\em A Collection of Essays in a Book}. New York:
+  Incollection Book Publisher,  9--33.
+
+\bibitem[\protect\citeauthoryear{Lee \& Morris}{Lee \&
+  Morris}{2014}]{workingpaper}
+Lee, Lynn~L.  \& Martha Morris (2014) A working paper.
 \newblock Working paper.
-\newblock Department of Politics, Working Papers University
-  ({www.working.edu/norton/newtheory.pdf}).
+\newblock Department of Working Papers, Working Papers University
+  ({www.working.edu/lee/newtheory.pdf}).
 
-\bibitem[\protect\citeauthoryear{Polgreen}{Polgreen}{2007}]{Polgreen2007}
-Polgreen, Lydia (2007) Raid on african union imperils darfur talks.
-\newblock {\em International Herald Tribune} 3 October:2
-  ({\url{http://www.nytimes.com/2007/10/02/world/africa/02darfur.html?_r=0"}}).
+\bibitem[\protect\citeauthoryear{Norton}{Norton}{2009}]{newsarticle}
+Norton, Nancy (2009) A newspaper article.
+\newblock {\em News Article Times} 4 December
+  ({\url{http://newsarticletimes.com/dec-4-news.html}}).
 
-\bibitem[\protect\citeauthoryear{Tomz \& Weeks}{Tomz \&
-  Weeks}{2013}]{tomz2013public}
-Tomz, Michael  \& Jessica Weeks (2013) Public opinion and the democratic peace.
-\newblock {\em American Political Science Review} { 107\/}(4): 849--865.
-
-\bibitem[\protect\citeauthoryear{{World Bank}}{{World Bank}}{2012}]{WorldBank}
-{World Bank} (2012) {2012 World Bank Report} ({www.worldbank.org}).
+\bibitem[\protect\citeauthoryear{{Web Resource Organization}}{{Web Resource
+  Organization}}{2012}]{webresource}
+{Web Resource Organization} (2012) {A Report on the Web}
+  ({\url{www.webreports.org/2012_report}}).
 
 \end{thebibliography}

@@ -1,6 +1,8 @@
 %$$$ jpr.bst (02.27.2013)
 %$$$ update (07.05.2013)
 %$$$ update (11.17.2014) 
+%$$$ update (05.20.2015) 
+% // Original version by Steven Miller
 % // Tweaks made by Allan Dafoe and Baobao Zhang (Yale University).
 %
 % This *.bst file will allow the following JPR citations.
@@ -81,15 +83,15 @@ FUNCTION {output.nonnull}
   output.state mid.sentence =
     { " " * write$ }
     { output.state after.block =
-	{ add.period$ write$
-	  newline$
-	  "\newblock " write$
-	}
-	{ output.state before.all =
-	    'write$
-	    { add.period$ " " * write$ }
-	  if$
-	}
+  { add.period$ write$
+    newline$
+    "\newblock " write$
+  }
+  { output.state before.all =
+      'write$
+      { add.period$ " " * write$ }
+    if$
+  }
       if$
       mid.sentence 'output.state :=
     }
@@ -116,7 +118,7 @@ FUNCTION {special.output.nonnull}
         { output.state before.all =
             'write$
             { ": " * write$
-		    }
+        }
           if$
         }
       if$
@@ -419,7 +421,8 @@ FUNCTION {format.rem.names}
       format.grepmi               % <-----
       #1 f format.name$ 't :=    
       nameptr #1 >
-    { namesleft #1 >
+      {numnames #4 <
+        {namesleft #1 >
         { ", " * t * }
         { t "others" =
         { " et~al." * }
@@ -428,13 +431,34 @@ FUNCTION {format.rem.names}
         }
       if$
     }
-    't
-      if$
-      nameptr #1 + 'nameptr :=
-      namesleft #1 - 'namesleft :=
+      { nameptr #3 <
+              { "; " * t * }
+        { namesleft #1 >
+              { ", " * t * }
+               { numnames #2 >
+                    { "  " * }
+                    'skip$
+                  if$
+                  t "others" =
+                        { " et~al." * }
+%                        { " and " * t * }
+                        { " \& " * t * }
+                      if$
+                }
+               if$
+             }
+          if$
+        }
+        if$
+        }
+            't
+        if$
+        nameptr #1 + 'nameptr :=          % nameptr += 1;
+        namesleft #1 - 'namesleft :=      % namesleft =- 1;
     }
   while$
 }
+
 
 FUNCTION {format.authors}
 { author empty$
@@ -689,12 +713,12 @@ FUNCTION {format.pages}
   { pages multi.page.check
 %    { "pages" pages n.dashify tie.or.space.connect }
 %    { "page" pages tie.or.space.connect }
-%	{ "(pp.\" pages n.dashify tie.or.space.connect }
-%	{ "(pp.\" pages tie.or.space.connect }
-	{ ", " pages n.dashify tie.or.space.connect }
-	{ ", " pages tie.or.space.connect }
+% { "(pp.\" pages n.dashify tie.or.space.connect }
+% { "(pp.\" pages tie.or.space.connect }
+  { ", " pages n.dashify tie.or.space.connect }
+  { ", " pages tie.or.space.connect }
     if$
-	"." *
+  "." *
   }
   if$
 }
@@ -705,7 +729,7 @@ FUNCTION {format.vol.num.pages}
     { volume empty$
        'skip$
        { "{\em " volume * "}" * }
-%	   { "\underline{" volume * "}" * }
+%    { "\underline{" volume * "}" * }
       if$
     }
     { volume emphasize.space
@@ -901,12 +925,12 @@ FUNCTION {book}
 { output.bibitem
   author empty$
     { format.editors.dot 
-	  "author and editor" output.check }
+    "author and editor" output.check }
     { format.authors 
-	  output.nonnull
+    output.nonnull
       crossref missing$
-    	{ "author and editor" editor either.or.check }
-    	'skip$
+      { "author and editor" editor either.or.check }
+      'skip$
       if$
     }
   if$
@@ -1016,7 +1040,7 @@ FUNCTION {incollection}
 format.chapter.pages special.output
   }
   { format.incoll.inproc.crossref 
-	output.nonnull
+  output.nonnull
     format.chapter.pages output
   }
   if$
@@ -1038,7 +1062,7 @@ FUNCTION {inproceedings}
   new.block
   crossref missing$
     { format.in.ed.booktitle 
-	  "booktitle" output.check
+    "booktitle" output.check
       format.bvolume output
       format.number.series output
       format.pages output

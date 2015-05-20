@@ -8,7 +8,7 @@ List of Things To Do for JPR .bst file
 * [x] If journal volume and issue are written under ‘volume’, as e.g. ‘volume = {58(2)},’, this appears in italics. The italics should be removed. 
 Ex. ‘Arellano, Manuel & Stephen Bond (1991) Some tests of specification for panel data: Monte Carlo evidence and an application to employment equations. Review of Economic Studies 58(2): 277–297.’
 
-* [ ] When there are four or more authors, semicolon should be used only after the first author. Comma should be used thereafter. 
+* [x] When there are four or more authors, semicolon should be used only after the first author. Comma should be used thereafter. 
 Ex. ‘Gleditsch, Nils Petter; Peter Wallensteen; Mikael Eriksson; Margareta Sollenberg & Håvard Strand’ should be changed to ‘Gleditsch, Nils Petter; Peter Wallensteen, Mikael Eriksson, Margareta Sollenberg & Håvard Strand’. 
 
 * [x] Articles with three authors are now written as ‘et al.’ in the text. Et al. should rather be used for four or more authors. When there are three authors, all names should be spelled out in text references. We would like to change the default for when ‘et al.’ should be used, from three to four. Do you know of a way to do this?
