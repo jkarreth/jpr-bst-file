@@ -2,7 +2,7 @@ Journal of Peace Research .bst file
 ==================================
 
 ## Introduction 
-This is an update to Steven Miller's Journal of Peace Research .bst file by Baobao Zhang and Allan Dafoe. Updates have been made to make the code conform to the style of the _Journal of Peace Research_ as of May 2015.
+This is an update to Steven Miller's _Journal of Peace Research_ .bst file by Baobao Zhang and Allan Dafoe. Updates have been made to make the code conform to the style of the _JPR_ as of May 2015.
 
 The official style guides for _JPR_ are found here:
 
@@ -67,12 +67,14 @@ Below are examples of each reference type:
 @book{book,
 author = {Devin Dee and Ellen East and Fred Fredrick Fitz and Genny Graham},
 title = {Book},
-address = {New Have, CT},
-publisher = {Book Publisher},
+address = {New Haven, CT},
+publisher = {Major University Press},
 year = {2004},
 edition = {2nd Edition}
 }
 ```
+
+Note that the address should include the city and the two-letter state or country abbreviation unless the city is New York, London, or some other major world city. "University Press" should not be abbreviated. 
 
 #### Essay in a Book
 
@@ -89,6 +91,9 @@ pages = {9--33}
 }
 ```
 
+Note that the address should include the city and the two-letter state or country abbreviation unless the city is New York, London, or some other major world city. "University Press" should not be abbreviated.
+
+
 #### Working Paper
 
 ```
@@ -102,7 +107,7 @@ url = {www.working.edu/lee/newtheory.pdf}
 }
 ```
 
-Note that `type` must be be `Working Paper`. 
+Note that `type` must be be `Working Paper`. Include both the department and the university. Include a URL when possible.
 
 #### Web Resources
 
@@ -128,7 +133,7 @@ url = {\url{http://newsarticletimes.com/dec-4-news.html}}
 }
 ```
 
-Note that `month` also includes the date before the month.
+Note that `month` also includes the date before the month. Include a URL when possible.
  
 
 ## Technical Details
