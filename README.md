@@ -145,6 +145,8 @@ Note that `type` must be be `Working Paper`. Include both the department and the
 
 #### News Article
 
+The `articlenews` reference type was especially created for this .bst. It is not included as one of the regular reference types for .bib. 
+
 ```
 @articlenews{newsarticle,
 author = {Nancy Norton},
