@@ -117,7 +117,7 @@ pages = {9--33}
 Note that the address should include the city and the two-letter state or country abbreviation unless the city is New York, London, or some other major world city. "University Press" should not be abbreviated.
 
 
-#### Working Paper
+#### Working Paper (Unpublished Work)
 
 ```
 @techreport{workingpaper,
@@ -132,7 +132,7 @@ url = {www.working.edu/lee/newtheory.pdf}
 
 Note that `type` must be be `Working Paper`. Include both the department and the university. Include a URL when possible.
 
-#### Web Resources
+#### Web Resource
 
 ```
 @misc{webresource,
@@ -143,7 +143,7 @@ Note that `type` must be be `Working Paper`. Include both the department and the
 }
 ```
 
-#### News Articles
+#### News Article
 
 ```
 @articlenews{newsarticle,
