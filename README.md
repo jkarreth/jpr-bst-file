@@ -97,7 +97,9 @@ edition = {2nd Edition}
 }
 ```
 
-Note that the address should include the city and the two-letter state or country abbreviation unless the city is New York, London, or some other major world city. "University Press" should not be abbreviated. 
+Note that the address should include the city; if the city is in the United States, please include the two-letter abbreivation for the state as well. Do not include the state abbreviation for New York (the city). We provide a [Python script](#python) that will replace full state names in your .bib file with abbreviations.
+
+"University Press" should not be abbreviated. For instance, you write type `Princeton University Press` and not `Princeton UP`.
 
 #### Essay in a Book
 
@@ -159,7 +161,32 @@ url = {\url{http://newsarticletimes.com/dec-4-news.html}}
 ```
 
 Note that `month` also includes the date before the month. Include a URL when possible.
- 
+
+## <a name="python"></a> State Abbreviations Python Script
+
+The JPR style for addresses requires that states within the United States be written in the two-letter abbreviations. We provide a [Python script "state_script.py"](https://github.com/13bzhang/jpr-bst-file/blob/master/code/state_script.py) that will replace full state names in a .bib file with abbreviations and export the fixed bibliography to a new .bib file. To use this script, download it. 
+
+In terminal, change the directory to the folder with the "state_script.py" Python script and type:
+
+```
+python state_script.py
+```
+
+You will be prompted to enter the location and name of the original .bib file and the new .bib file:
+
+```
+Original bib file:
+New bib file:
+```
+
+After each prompt, type the location and file name without quotation marks, like such:
+
+```
+Original bib file:/Users/baobaozhang/Dropbox/jpr-bst-file/tests/my_old_bib.bib
+New bib file:/Users/baobaozhang/Dropbox/jpr-bst-file/tests/my_new_bib.bib
+```
+
+A new .bib file with the correct state abbreviations will be exported. For instance, `address = {Princeton, New Jersey},` in the old file will be changed to `address = {Princeton, NJ},` in the new file.
 
 ## Technical Details
 
