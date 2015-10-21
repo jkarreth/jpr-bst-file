@@ -23,9 +23,14 @@ In the preamble of your .tex document, include the following:
 
 ```
 \usepackage[round]{natbib}
+# seperators
 \setcitestyle{aysep={,},yysep={,},citesep={;},notesep={: }}
+# hide boxes around hyperlinks
 \usepackage[hidelinks]{hyperref}
 \urlstyle{same}
+# customized captions for tables and figures
+\renewcommand{\thetable}{\Roman{table}}
+\usepackage{caption}\captionsetup{labelsep = period}
 ```
 
 Here is the explanation for the separators in `setcitestyle`:
@@ -33,6 +38,8 @@ Here is the explanation for the separators in `setcitestyle`:
 * Between author and year: aysep
 * Between years with common author: yysep
 * Next before post-note: notesep
+
+The last two lines ensure a full stop after table and figure numbers and Roman numerals for tables
 
 ### Inline Citation
 
@@ -200,7 +207,3 @@ Test results: https://github.com/13bzhang/jpr-bst-file/blob/master/tests/my_test
 
 To-do list: https://github.com/13bzhang/jpr-bst-file/blob/master/tasks/to_do_list.md
 
-### Updates Coming Soon
-
-1. A full LaTeX style guide for _JPR_ 
-2. A Python script to make sure that the `address` field in .bib documents confirms to the style guide. 
