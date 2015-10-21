@@ -2,15 +2,15 @@
 
 \bibitem[\protect\citeauthoryear{Anderson, Burt \& Cindle}{Anderson, Burt \&
   Cindle}{2014}]{journalarticle}
-Anderson, Annie, Bobby Burt  \& Catherine~C. Cindle (2014) This is a journal
+Anderson, Annie~A, Bobby Burt  \& Catherine~C Cindle (2014) This is a journal
   article.
 \newblock {\em Journal Article} { 1\/}(1): 1--10.
 
 \bibitem[\protect\citeauthoryear{Dee, East, Fitz \& Graham}{Dee
   et~al.}{2004}]{book}
-Dee, Devin; Ellen East, Fred~F. Fitz   \& Genny Graham (2004) {\em { Book\/}
+Dee, Devin; Ellen East, Fred~F Fitz   \& Genny Graham (2004) {\em { Book\/}
   (2nd Edition ed.).}
-\newblock New Have, CT: Book Publisher.
+\newblock Princeton, NJ: Book Publisher.
 
 \bibitem[\protect\citeauthoryear{Henri}{Henri}{2004}]{incollection}
 Henri, Harry (2004) An essay in a book.
@@ -19,7 +19,7 @@ Henri, Harry (2004) An essay in a book.
 
 \bibitem[\protect\citeauthoryear{Lee \& Morris}{Lee \&
   Morris}{2014}]{workingpaper}
-Lee, Lynn~L.  \& Martha Morris (2014) A working paper.
+Lee, Lynn~L  \& Martha Morris (2014) A working paper.
 \newblock Working paper.
 \newblock Department of Working Papers, Working Papers University
   ({www.working.edu/lee/newtheory.pdf}).

@@ -58,22 +58,46 @@ STRINGS {ss tt fm}
 FUNCTION {format.grepmi}
 {
     'ss :=   %% Make a copy of the name in s
+    %% Extract the First (and possible Medium) names
+    %% and store it in variable fm
     ss #1 "{ff}" format.name$ 'fm :=
-    fm empty$ {
 
+    %% Note that now fm could contain:
+    %% * An empty string ("") if the author has no first name (only Last name was provided)
+    %% * A single word (like "First") if the author has no medium name
+    %% * A sequence of words (like "First Medium")
+    %% For the last case we want to abbreviate "Medium", without dot
+
+    %% Test if we are in the first case
+    fm empty$ {
+       % If empty (no first name), use the standard formatting
        ss #1 "{vv~}{ll}{, jj}{, ff}" format.name$
-    }{ 
-        fm #1 "{ff }{ l.}" format.name$ 'tt :=   %% And store the result in tt
-        tt text.length$ #3 > { 
-            tt 
-            }{ 
+    }{ % Otherwise, attempt the trick
+        %% Now the trick. Interpret "First Medium"
+        %% as if "Medium" were a last name, and abbreviate it
+        fm #1 "{ff }{l}" format.name$ 'tt :=   %% And store the result in tt
+        %% Consider the particular case in which no Medium name is present
+        %% In this case, "First" will be interpreted as a last name, and
+        %% thus abbreviated. This can be detected because the resulting
+        %% string has length 1
+        tt text.length$ #1 > { %% If there was a medium name
+            tt  %% Store the abbreviated version
+            }{  %% Else store the original version of the name
             fm
             } if$
+
+        %% After the above, the top of the stack will contain
+        %% either "First" unabbreviated (if the author has not middle name)
+        %% or "First M", as required
         'tt :=  %% Copy that value to tt
+
+        %% Now complete the standard formatting of the author, omitting
+        %% the first name part, which is stored in tt
         ss #1 "{vv~}{ll}{, jj}" format.name$
+        %% And concatenate to it the value of tt
         ", " *
         tt *
-  }if$   
+  }if$   %% If the trick has to be done
 }
 
 STRINGS { s t u f }
@@ -83,15 +107,15 @@ FUNCTION {output.nonnull}
   output.state mid.sentence =
     { " " * write$ }
     { output.state after.block =
-	{ add.period$ write$
-	  newline$
-	  "\newblock " write$
-	}
-	{ output.state before.all =
-	    'write$
-	    { add.period$ " " * write$ }
-	  if$
-	}
+  { add.period$ write$
+    newline$
+    "\newblock " write$
+  }
+  { output.state before.all =
+      'write$
+      { add.period$ " " * write$ }
+    if$
+  }
       if$
       mid.sentence 'output.state :=
     }
@@ -106,6 +130,8 @@ FUNCTION {write.url}
   if$
 }
 
+
+
 FUNCTION {special.output.nonnull}
 { 's :=
   output.state mid.sentence =
@@ -118,7 +144,7 @@ FUNCTION {special.output.nonnull}
         { output.state before.all =
             'write$
             { ": " * write$
-		    }
+        }
           if$
         }
       if$
@@ -713,12 +739,12 @@ FUNCTION {format.pages}
   { pages multi.page.check
 %    { "pages" pages n.dashify tie.or.space.connect }
 %    { "page" pages tie.or.space.connect }
-%	{ "(pp.\" pages n.dashify tie.or.space.connect }
-%	{ "(pp.\" pages tie.or.space.connect }
-	{ ", " pages n.dashify tie.or.space.connect }
-	{ ", " pages tie.or.space.connect }
+% { "(pp.\" pages n.dashify tie.or.space.connect }
+% { "(pp.\" pages tie.or.space.connect }
+  { ", " pages n.dashify tie.or.space.connect }
+  { ", " pages tie.or.space.connect }
     if$
-	"." *
+  "." *
   }
   if$
 }
@@ -729,7 +755,7 @@ FUNCTION {format.vol.num.pages}
     { volume empty$
        'skip$
        { "{\em " volume * "}" * }
-%	   { "\underline{" volume * "}" * }
+%    { "\underline{" volume * "}" * }
       if$
     }
     { volume emphasize.space
@@ -925,12 +951,12 @@ FUNCTION {book}
 { output.bibitem
   author empty$
     { format.editors.dot 
-	  "author and editor" output.check }
+    "author and editor" output.check }
     { format.authors 
-	  output.nonnull
+    output.nonnull
       crossref missing$
-    	{ "author and editor" editor either.or.check }
-    	'skip$
+      { "author and editor" editor either.or.check }
+      'skip$
       if$
     }
   if$
@@ -1040,7 +1066,7 @@ FUNCTION {incollection}
 format.chapter.pages special.output
   }
   { format.incoll.inproc.crossref 
-	output.nonnull
+  output.nonnull
     format.chapter.pages output
   }
   if$
@@ -1062,7 +1088,7 @@ FUNCTION {inproceedings}
   new.block
   crossref missing$
     { format.in.ed.booktitle 
-	  "booktitle" output.check
+    "booktitle" output.check
       format.bvolume output
       format.number.series output
       format.pages output
