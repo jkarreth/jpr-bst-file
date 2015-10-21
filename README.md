@@ -39,7 +39,7 @@ Here is the explanation for the separators in `setcitestyle`:
 * Between years with common author: yysep
 * Next before post-note: notesep
 
-The last two lines ensure a full stop after table and figure numbers and Roman numerals for tables
+The last two lines ensure a full stop after table and figure numbers and Roman numerals for tables.
 
 ### Inline Citation
 
