@@ -41,6 +41,15 @@ Here is the explanation for the separators in `setcitestyle`:
 
 The last two lines ensure a full stop after table and figure numbers and Roman numerals for tables.
 
+### An Example JPR Paper Typeset Using LaTeX
+
+See an example of a paper conforming to the JPR format in the `example_latex` folder of this GitHub repo. We include the source code (.tex files) as well as the end results (PDF files).
+
+* [Main paper .tex file](https://github.com/13bzhang/jpr-bst-file/blob/master/example_latex/example_latex_main.tex)
+* [Main paper PDF output](https://github.com/13bzhang/jpr-bst-file/blob/master/example_latex/example_latex_main.pdf)
+* [Tables and Figures .tex file](https://github.com/13bzhang/jpr-bst-file/blob/master/example_latex/example_latex_tables_figures.tex)
+* [Tables and Figures PDF output](https://github.com/13bzhang/jpr-bst-file/blob/master/example_latex/example_latex_tables_figures.pdf)
+
 ### Inline Citation
 
 For inline citations, use `\citep{citekey}` to cite with parentheses and `\cite{citekey}` to cite without. 
