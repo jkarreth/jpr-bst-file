@@ -1,7 +1,7 @@
 Journal of Peace Research .bst file
 ==================================
 
-## Introduction 
+# Introduction 
 This is an update to Steven Miller's _Journal of Peace Research_ .bst file by Baobao Zhang and Allan Dafoe. Updates have been made to make the code conform to the style of the _JPR_ as of May 2015.
 
 The official style guides for _JPR_ are found here:
@@ -10,14 +10,13 @@ http://file.prio.no/journals/JPR/JPR-Notes-for-Authors-140909.pdf
 
 http://file.prio.no/journals/JPR/Technical-Requirements.pdf
 
+# How to Use
 
-## How to Use
-
-### Download
+## Download
 
 Download the [.bst file](https://github.com/13bzhang/jpr-bst-file/blob/master/code/jpr.bst) and save it to the same folder as the .tex document you are working on.
 
-### Preamble 
+## Preamble 
 
 In the preamble of your .tex document, include the following:
 
@@ -41,7 +40,18 @@ Here is the explanation for the separators in `setcitestyle`:
 
 The last two lines ensure a full stop after table and figure numbers and Roman numerals for tables.
 
-### Inline Citation
+## An Example JPR Paper Typeset Using LaTeX
+
+See an example of a paper conforming to the JPR format in the `example_latex` folder of this GitHub repo. We include the source code (.tex files) as well as the end results (PDF files).
+
+* [Main paper .tex file](https://github.com/13bzhang/jpr-bst-file/blob/master/example_latex/example_latex_main.tex)
+* [Main paper PDF output](https://github.com/13bzhang/jpr-bst-file/blob/master/example_latex/example_latex_main.pdf)
+* [Tables and Figures .tex file](https://github.com/13bzhang/jpr-bst-file/blob/master/example_latex/example_latex_tables_figures.tex)
+* [Tables and Figures PDF output](https://github.com/13bzhang/jpr-bst-file/blob/master/example_latex/example_latex_tables_figures.pdf)
+
+# Bibliography Information
+
+## Inline Citation
 
 For inline citations, use `\citep{citekey}` to cite with parentheses and `\cite{citekey}` to cite without. 
 
@@ -169,7 +179,7 @@ url = {\url{http://newsarticletimes.com/dec-4-news.html}}
 
 Note that `month` also includes the date before the month. Include a URL when possible.
 
-## <a name="python"></a> State Abbreviations Python Script
+### <a name="python"></a>State Abbreviations Python Script
 
 The JPR style for addresses requires that states within the United States be written in the two-letter abbreviations. We provide a [Python script "state_script.py"](https://github.com/13bzhang/jpr-bst-file/blob/master/code/state_script.py) that will replace full state names in a .bib file with abbreviations and export the fixed bibliography to a new .bib file. To use this script, download it. 
 
