@@ -179,7 +179,7 @@ url = {\url{http://newsarticletimes.com/dec-4-news.html}}
 
 Note that `month` also includes the date before the month. Include a URL when possible.
 
-### <a name="python"></a> State Abbreviations Python Script
+### <a name="python"></a>State Abbreviations Python Script
 
 The JPR style for addresses requires that states within the United States be written in the two-letter abbreviations. We provide a [Python script "state_script.py"](https://github.com/13bzhang/jpr-bst-file/blob/master/code/state_script.py) that will replace full state names in a .bib file with abbreviations and export the fixed bibliography to a new .bib file. To use this script, download it. 
 
