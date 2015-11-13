@@ -12,9 +12,35 @@ http://file.prio.no/journals/JPR/Technical-Requirements.pdf
 
 # How to Use
 
-## Download
+## Downloads
 
-Download the [.bst file](https://github.com/13bzhang/jpr-bst-file/blob/master/code/jpr.bst) and save it to the same folder as the .tex document you are working on.
+Download the [pre-processing Python script](https://raw.githubusercontent.com/13bzhang/jpr-bst-file/master/code/pre_process.py) and the [.bst file](https://github.com/13bzhang/jpr-bst-file/blob/master/code/jpr.bst). Save them to the same folder as the .tex document you are working on.
+
+## Pre-processing your .bib file
+
+Pre-process your .bib file using the Python script. You will need to pre-process your .bib file in order for the .bst file to work correctly.
+
+In terminal, change the directory to the folder with the "pre_process.py" Python script and type:
+
+```
+python pre_process.py
+```
+
+You will be prompted to enter the location and name of the original .bib file and the new .bib file:
+
+```
+Original bib file: 
+New bib file: 
+```
+
+After each prompt, type the location and file name without quotation marks, like such:
+
+```
+Original bib file: /Users/baobaozhang/Dropbox/jpr-bst-file/tests/my_old_bib.bib
+New bib file: /Users/baobaozhang/Dropbox/jpr-bst-file/tests/my_new_bib.bib
+```
+
+A new .bib file with the correct formats will be exported.
 
 ## Preamble 
 
@@ -22,12 +48,12 @@ In the preamble of your .tex document, include the following:
 
 ```
 \usepackage[round]{natbib}
-# seperators
+% seperators
 \setcitestyle{aysep={,},yysep={,},citesep={;},notesep={: }}
-# hide boxes around hyperlinks
+% hide boxes around hyperlinks
 \usepackage[hidelinks]{hyperref}
 \urlstyle{same}
-# customized captions for tables and figures
+% customized captions for tables and figures
 \renewcommand{\thetable}{\Roman{table}}
 \usepackage{caption}\captionsetup{labelsep = period}
 ```
@@ -79,7 +105,7 @@ Smith (2000) suggests this theory is not implausible.
 In your .bib document, you can include the following types of references:
 
 * academic journal articles (use `article`)
-* books (use `book`)
+* books and editted volumes (use `book`)
 * essays in books (use `incollection`)
 * working papers (use `techreport`) 
 * web resources (use `misc`)
@@ -105,7 +131,7 @@ Below are examples of each reference type:
 
 ``` 
 @book{book,
-author = {Devin Dee and Ellen East and Fred Fredrick Fitz and Genny Graham},
+author = {Devin Dee and Ellen East and Fred FM Fitz and Genny Graham},
 title = {Book},
 address = {New Haven, CT},
 publisher = {Major University Press},
@@ -114,7 +140,7 @@ edition = {2nd Edition}
 }
 ```
 
-Note that the address should include the city; if the city is in the United States, please include the two-letter abbreivation for the state as well. Do not include the state abbreviation for New York (the city). We provide a [Python script](#python) that will replace full state names in your .bib file with abbreviations.
+Note that the address should include the city; if the city is in the United States, please include the two-letter abbreivation for the state as well. Do not include the state abbreviation for New York (the city). The pre-processing Python script will replace full state names in your .bib file with correct abbreviations.
 
 "University Press" should not be abbreviated. For instance, you write type `Princeton University Press` and not `Princeton UP`.
 
@@ -178,32 +204,6 @@ url = {\url{http://newsarticletimes.com/dec-4-news.html}}
 ```
 
 Note that `month` also includes the date before the month. Include a URL when possible.
-
-### <a name="python"></a>State Abbreviations Python Script
-
-The JPR style for addresses requires that states within the United States be written in the two-letter abbreviations. We provide a [Python script "state_script.py"](https://github.com/13bzhang/jpr-bst-file/blob/master/code/state_script.py) that will replace full state names in a .bib file with abbreviations and export the fixed bibliography to a new .bib file. To use this script, download it. 
-
-In terminal, change the directory to the folder with the "state_script.py" Python script and type:
-
-```
-python state_script.py
-```
-
-You will be prompted to enter the location and name of the original .bib file and the new .bib file:
-
-```
-Original bib file:
-New bib file:
-```
-
-After each prompt, type the location and file name without quotation marks, like such:
-
-```
-Original bib file:/Users/baobaozhang/Dropbox/jpr-bst-file/tests/my_old_bib.bib
-New bib file:/Users/baobaozhang/Dropbox/jpr-bst-file/tests/my_new_bib.bib
-```
-
-A new .bib file with the correct state abbreviations will be exported. For instance, `address = {Princeton, New Jersey},` in the old file will be changed to `address = {Princeton, NJ},` in the new file.
 
 ## Technical Details
 
