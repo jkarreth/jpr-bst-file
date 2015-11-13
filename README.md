@@ -210,10 +210,3 @@ Note that `month` also includes the date before the month. Include a URL when po
 The original repo: https://github.com/svmiller/jpr-bst-file
 
 This is a work in process. Please check in for new updates. 
-
-Code: https://github.com/13bzhang/jpr-bst-file/blob/master/code/jpr.bst
-
-Test results: https://github.com/13bzhang/jpr-bst-file/blob/master/tests/my_test.pdf
-
-To-do list: https://github.com/13bzhang/jpr-bst-file/blob/master/tasks/to_do_list.md
-
