@@ -1,9 +1,0 @@
-ENTRY {}{}{}
-
-FUNCTION {test}
-
-{"de la Cierva y Codorn{\’\i}u, Juan"
-#1 "{ff - }{vv - }{ll}" format.name$ top$}
-READ
-
-EXECUTE{test}

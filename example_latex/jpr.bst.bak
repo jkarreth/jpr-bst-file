@@ -1,26 +1,20 @@
 %$$$ jpr.bst (02.27.2013)
 %$$$ update (07.05.2013)
-%$$$ update (11.17.2014) // Tweaks made by Allan Dafoe (Yale University).
-% This is a fairly crude hack of newapa.bst to conform with the citation 
-% and bibliography standards of Journal of Peace Research, as of 2012.
+%$$$ update (11.17.2014) 
+%$$$ update (05.20.2015) 
+% // Original version by Steven Miller
+% // Tweaks made by Allan Dafoe and Baobao Zhang (Yale University).
 %
 % This *.bst file will allow the following JPR citations.
 % 1) ARTICLE
 % 2) BOOK
 % 3) INCOLLECTION
-% 4) UNPUBLISHED
+% 4) UNPUBLISHED (please use techreport)
+% 5) WEB RESOURCES (please use misc)
+% 6) NEWS ARTICLES (please use articlenews)
 %
-% Fortunately, these are the four most common citations in political 
-% science research.
-%
-% Comments on using this *.bst file are available on my website.
-% http://svmiller.com/miscellany/journal-of-peace-research-bst-file/
-%
-% Users of this *.bst file may find their own issues. I cannot offer total support for it. That said, 
-% I am willing to listen to feedback. You can e-mail me at svmille@clemson.edu.
-%
-% If you find this *.bst file useful, please feel free to disseminate it. I ask only for attribution
-% under a creative commons license in return.
+% Original GitHub repo by Steven Miller: https://github.com/svmiller/jpr-bst-file
+% New GitHub fork by Baobao Zhang: https://github.com/13bzhang/jpr-bst-file
 
 
 ENTRY
@@ -34,7 +28,7 @@ ENTRY
     institution
     journal
     key
-%   month
+    month
     note
     number
     organization
@@ -64,22 +58,47 @@ STRINGS {ss tt fm}
 FUNCTION {format.grepmi}
 {
     'ss :=   %% Make a copy of the name in s
+    %% Extract the First (and possible Medium) names
+    %% and store it in variable fm
     ss #1 "{ff}" format.name$ 'fm :=
-    fm empty$ {
 
+    %% Note that now fm could contain:
+    %% * An empty string ("") if the author has no first name (only Last name was provided)
+    %% * A single word (like "First") if the author has no medium name
+    %% * A sequence of words (like "First Medium")
+    %% For the last case we want to abbreviate "Medium", without dot
+
+    %% Test if we are in the first case
+    fm empty$ {
+       % If empty (no first name), use the standard formatting
        ss #1 "{vv~}{ll}{, jj}{, ff}" format.name$
-    }{ 
-        fm #1 "{ff }{ l.}" format.name$ 'tt :=   %% And store the result in tt
-        tt text.length$ #3 > { 
-            tt 
-            }{ 
+    }{ % Otherwise, attempt the trick
+        %% Now the trick. Interpret "First Medium"
+        %% as if "Medium" were a last name, and abbreviate it
+        fm #1 "{ff }{ll}" format.name$ 'tt :=
+           %% And store the result in tt
+        %% Consider the particular case in which no Medium name is present
+        %% In this case, "First" will be interpreted as a last name, and
+        %% thus abbreviated. This can be detected because the resulting
+        %% string has length 1
+        tt text.length$ #1 > { %% If there was a medium name
+            tt  %% Store the abbreviated version
+            }{  %% Else store the original version of the name
             fm
             } if$
+
+        %% After the above, the top of the stack will contain
+        %% either "First" unabbreviated (if the author has not middle name)
+        %% or "First M", as required
         'tt :=  %% Copy that value to tt
+
+        %% Now complete the standard formatting of the author, omitting
+        %% the first name part, which is stored in tt
         ss #1 "{vv~}{ll}{, jj}" format.name$
+        %% And concatenate to it the value of tt
         ", " *
         tt *
-  }if$   
+  }if$   %% If the trick has to be done
 }
 
 STRINGS { s t u f }
@@ -89,15 +108,15 @@ FUNCTION {output.nonnull}
   output.state mid.sentence =
     { " " * write$ }
     { output.state after.block =
-	{ add.period$ write$
-	  newline$
-	  "\newblock " write$
-	}
-	{ output.state before.all =
-	    'write$
-	    { add.period$ " " * write$ }
-	  if$
-	}
+  { add.period$ write$
+    newline$
+    "\newblock " write$
+  }
+  { output.state before.all =
+      'write$
+      { add.period$ " " * write$ }
+    if$
+  }
       if$
       mid.sentence 'output.state :=
     }
@@ -106,11 +125,13 @@ FUNCTION {output.nonnull}
 }
 
 FUNCTION {write.url}
-{ URL empty$
+{ url empty$
     { skip$ }
-    { "\newline\harvardurl{" URL * "}" * write$ newline$ }
+    { "({" url * "})" * write$}
   if$
 }
+
+
 
 FUNCTION {special.output.nonnull}
 { 's :=
@@ -124,7 +145,7 @@ FUNCTION {special.output.nonnull}
         { output.state before.all =
             'write$
             { ": " * write$
-		    }
+        }
           if$
         }
       if$
@@ -224,6 +245,7 @@ FUNCTION {output.year.check}
      }
   if$
 }
+
 
 FUNCTION {output.bibitem}
 { newline$
@@ -358,7 +380,7 @@ FUNCTION {format.names}
       format.grepmi 't :=
       nameptr #1 >
         { namesleft #1 >
-              { ", " * t * }
+              { "; " * t * }
                { numnames #2 >
                     { "" * }
                     'skip$
@@ -414,6 +436,7 @@ FUNCTION {format.names.fml}
   while$
 }
 
+
 FUNCTION {format.rem.names}
 { 's :=
   'f :=
@@ -425,8 +448,9 @@ FUNCTION {format.rem.names}
       format.grepmi               % <-----
       #1 f format.name$ 't :=    
       nameptr #1 >
-    { namesleft #1 >
-        { "; " * t * }
+      {numnames #3 <
+        {namesleft #1 >
+        { ", " * t * }
         { t "others" =
         { " et~al." * }
         { "  \& " * t * }
@@ -434,13 +458,34 @@ FUNCTION {format.rem.names}
         }
       if$
     }
-    't
-      if$
-      nameptr #1 + 'nameptr :=
-      namesleft #1 - 'namesleft :=
+      { nameptr #3 <
+              { "; " * t * }
+        { namesleft #1 >
+              { ", " * t * }
+               { numnames #2 >
+                    { "  " * }
+                    'skip$
+                  if$
+                  t "others" =
+                        { " et~al." * }
+%                        { " and " * t * }
+                        { " \& " * t * }
+                      if$
+                }
+               if$
+             }
+          if$
+        }
+        if$
+        }
+            't
+        if$
+        nameptr #1 + 'nameptr :=          % nameptr += 1;
+        namesleft #1 - 'namesleft :=      % namesleft =- 1;
     }
   while$
 }
+
 
 FUNCTION {format.authors}
 { author empty$
@@ -453,6 +498,17 @@ FUNCTION {format.authors}
   if$
 }
 
+
+FUNCTION {format.authors.2}
+{ author empty$
+    { "" }
+    { author #1 "{ff }{ll}" format.name$
+      format.grepmi                                    
+      #1 "{ff }{ll}" format.name$          
+      "{ff }{vv~}{ll}{, jj}" author format.rem.names
+    }
+  if$
+}
 
 FUNCTION {format.key}
 { empty$
@@ -485,37 +541,43 @@ FUNCTION {format.editors}
   if$
 }
 
+
 FUNCTION {format.editors.dot}
 { editor empty$
     { "" }
-    { editor format.names
+    { editor #1 "{vv~}{ll}{, jj}{, ff}" format.name$
+      format.grepmi                                    
+      #1 "{vv~}{ll}{, jj}{, ff}" format.name$          
+      "{ff }{vv~}{ll}{, jj}" editor format.rem.names
       editor num.names$ #1 >
-    { " (eds)." * }
-    { " (ed.)." * }
+    { ", eds" * }
+    { ", ed." * }
       if$
     }
   if$
 }
 
-FUNCTION {format.title}
-{ title empty$
-    { "" }
-    { title "t" change.case$ }
-%    { title add.period$ }
-  if$
-}
+
+
+%FUNCTION {format.title}
+%{ title empty$
+%    { "" }
+%    { title "t" change.case$ }
+%%    { title add.period$ }
+%  if$
+%}
 
 % Note that the APA style requres case changes
 % in article titles. The following does not
 % change cases. If you perfer it, uncomment the
 % following and comment out the above.
 
-%FUNCTION {format.title}
-%{ title empty$
-%    { "" }
-%    { title }
-%  if$
-%}
+FUNCTION {format.title}
+{ title empty$
+    { "" }
+    { title }
+  if$
+}
 
 FUNCTION {n.dashify}
 { 't :=
@@ -645,18 +707,52 @@ FUNCTION {multi.page.check}
   multiresult
 }
 
+FUNCTION {format.org.or.pub}
+{ 't :=
+  ""
+  address empty$ t empty$ and
+    'skip$
+    {
+      address "address" *
+      t empty$
+        'skip$
+        { address empty$
+            'skip$
+            { ": " * }
+          if$
+          t *
+        }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.url}
+{
+  url
+  duplicate$ empty$
+    { pop$ "" }
+    { "({" swap$ * "})" * }
+  if$
+}
+
+FUNCTION {format.publisher.address}
+{ publisher "publisher" 
+ format.org.or.pub
+}
+
 FUNCTION {format.pages}
 { pages empty$
   { "" }
   { pages multi.page.check
 %    { "pages" pages n.dashify tie.or.space.connect }
 %    { "page" pages tie.or.space.connect }
-%	{ "(pp.\" pages n.dashify tie.or.space.connect }
-%	{ "(pp.\" pages tie.or.space.connect }
-	{ ", " pages n.dashify tie.or.space.connect }
-	{ ", " pages tie.or.space.connect }
+% { "(pp.\" pages n.dashify tie.or.space.connect }
+% { "(pp.\" pages tie.or.space.connect }
+  { ", " pages n.dashify tie.or.space.connect }
+  { ", " pages tie.or.space.connect }
     if$
-	"." *
+  "." *
   }
   if$
 }
@@ -667,7 +763,7 @@ FUNCTION {format.vol.num.pages}
     { volume empty$
        'skip$
        { "{\em " volume * "}" * }
-%	   { "\underline{" volume * "}" * }
+%    { "\underline{" volume * "}" * }
       if$
     }
     { volume emphasize.space
@@ -835,22 +931,40 @@ FUNCTION {article}
       format.pages output
     }
   if$
-  new.block
+  %new.block
   note output
+  format.url output
   fin.entry
-  write.url
+}
+
+FUNCTION {articlenews}
+{ output.bibitem
+  format.authors 
+  "author" output.check
+  author format.key output          % added
+  output.year.check              % added
+%  new.block
+  format.title 
+  "title" output.check
+  new.block
+  journal emphasize "journal" output.check 
+  %new.block
+  month output
+  note output
+  format.url output
+  fin.entry
 }
 
 FUNCTION {book}
 { output.bibitem
   author empty$
     { format.editors.dot 
-	  "author and editor" output.check }
+    "author and editor" output.check }
     { format.authors 
-	  output.nonnull
+    output.nonnull
       crossref missing$
-    	{ "author and editor" editor either.or.check }
-    	'skip$
+      { "author and editor" editor either.or.check }
+      'skip$
       if$
     }
   if$
@@ -872,8 +986,9 @@ FUNCTION {book}
     }
   if$
 %  format.edition output
-  new.block
+ %new.block
   note output
+  format.url output
   fin.entry
 }
 
@@ -888,8 +1003,9 @@ FUNCTION {booklet}
   new.block
   howpublished output
   address output
-  new.block
+ %new.block
   note output
+  format.url output
   fin.entry
 }
 
@@ -927,8 +1043,9 @@ FUNCTION {inbook}
     }
   if$
 %  format.edition output
-  new.block
+ %new.block
   note output
+  format.url output
   fin.entry
 }
 
@@ -953,15 +1070,17 @@ FUNCTION {incollection}
     new.sentence
     address output
     publisher "publisher" output.check.colon
+    before.all 'output.state := %% added
 format.chapter.pages special.output
   }
   { format.incoll.inproc.crossref 
-	output.nonnull
+  output.nonnull
     format.chapter.pages output
   }
   if$
-  new.block
+ %new.block
   note output
+  format.url output
   fin.entry
 }
 
@@ -977,7 +1096,7 @@ FUNCTION {inproceedings}
   new.block
   crossref missing$
     { format.in.ed.booktitle 
-	  "booktitle" output.check
+    "booktitle" output.check
       format.bvolume output
       format.number.series output
       format.pages output
@@ -990,8 +1109,9 @@ FUNCTION {inproceedings}
       format.pages output
     }
   if$
-  new.block
+ %new.block
   note output
+  format.url output
   fin.entry
 }
 
@@ -1013,8 +1133,9 @@ FUNCTION {manual}
 %  ":" output
 %  organization output
 %  format.edition output
-  new.block
+ %new.block
   note output
+  format.url output
   fin.entry
 }
 
@@ -1031,8 +1152,9 @@ FUNCTION {mastersthesis}
   "Master's thesis" format.thesis.type output.nonnull
   school "school" output.check
   address output
-  new.block
+ %new.block
   note output
+  format.url output
   fin.entry
 }
 
@@ -1040,13 +1162,14 @@ FUNCTION {misc}
 { output.bibitem
   format.authors output
   author format.key output            % added
-  output.year.check                   % added
-  title howpublished new.block.checkb
+   output.year.check
+  %title howpublished new.block.checkb
   format.title output
-  new.block
-  howpublished output
-  new.block
+  %new.block
+  %howpublished output
+ %new.block
   note output
+  format.url output
   fin.entry
 }
 
@@ -1063,8 +1186,9 @@ FUNCTION {phdthesis}
   "PhD thesis" format.thesis.type output.nonnull
   school "school" output.check
   address output
-  new.block
+  %new.block
   note output
+  format.url output
   fin.entry
 }
 
@@ -1085,8 +1209,9 @@ FUNCTION {proceedings}
   new.sentence
   organization output
   publisher output
-  new.block
+ %new.block
   note output
+  format.url output
   fin.entry
 }
 
@@ -1096,16 +1221,15 @@ FUNCTION {techreport}
   "author" output.check
   author format.key output             % added
   output.year.check                    % added
-  new.block
   format.title 
   "title" output.check
   new.block
   format.tr.number output.nonnull
+  new.block
   institution 
   "institution" output.check
-  address output
-  new.block
   note output
+  format.url output
   fin.entry
 }
 
@@ -1118,10 +1242,10 @@ FUNCTION {unpublished}
   %new.block
   format.title 
   "title" output.check
-  new.block
-  note "note" output.check
+ %new.block
+  note output
+  format.url output
   fin.entry
-  write.url
 }
 
 FUNCTION {default.type} { misc }
@@ -1255,23 +1379,59 @@ FUNCTION {my.full.label}
   u2        
 }
 
+FUNCTION {space.word}
+{ " " swap$ * " " * }
+
+FUNCTION {bbl.and}
+{ "and"}
+
+
+FUNCTION {bbl.etal}
+{ "et~al." }
+
 FUNCTION {format.lab.names}
-{ 's :=                             
-  s #1 "{vv~}{ll}" format.name$        
-  s num.names$ duplicate$
-  #2 >                                
-     { pop$ " et~al." * }            
-     { #2 <
-          'skip$
-          { s #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
-                { "et~al. " * }
-%               { " and " * s #2 "{vv~}{ll}" format.name$ * }
-                { " \& " * s #2 "{vv~}{ll}" format.name$ * }
-             if$
+{'s :=
+ "" 't :=
+  #1 'nameptr :=
+  s num.names$ 'numnames :=
+  numnames 'namesleft :=
+    { namesleft #0 > }
+    { s nameptr
+      "{vv~}{ll}" format.name$
+      't :=
+      nameptr #1 >
+        {
+          nameptr #2 =
+          numnames #3 > and
+            { "others" 't :=
+              #1 'namesleft := }
+            'skip$
+          if$
+          namesleft #1 >
+            { ", " * t * }
+            {
+              s nameptr "{ll}" format.name$ duplicate$ "others" =
+                { 't := }
+                { pop$ }
+              if$
+              t "others" =
+                {
+                  " " * bbl.etal *
+                }
+                {
+                  "\&"
+                  space.word * t *
+                }
+              if$
             }
-       if$
-     }
-  if$
+          if$
+        }
+        't
+      if$
+      nameptr #1 + 'nameptr :=
+      namesleft #1 - 'namesleft :=
+    }
+  while$
 }
 
 FUNCTION {author.key.label}

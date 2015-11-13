@@ -46,7 +46,7 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
 Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere 
 
 \section*{Literature review}
-You can cite journal articles \cite{journalarticle}. You can also cite essays in a book \citep{incollection}. Citing books is easy \citep{book}. We can also cite working papers \citep{workingpaper}. Furthermore, you can cite web sources \citep{webresource}. Finally, we can cite newspaper articles \citep{newsarticle}.
+You can cite journal articles \cite{journalarticle}. You can also cite essays in a book \citep{incollection}. Citing books is easy \citep{book}; so is citing editted volumes \citep{edittedvolume}. We can also cite working papers \citep{workingpaper}. Furthermore, you can cite web sources \citep{webresource}. We can cite newspaper articles \citep{newsarticle}.
 
 \section*{Research design}
 
@@ -70,21 +70,25 @@ Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil 
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
+{\singlespacing
 \begin{center}
 \line(1,0){150}\\
 Table I in here\\
 \line(1,0){150}
 \end{center}
+}
 
 \subsection*{Figures}
 
 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
+{\singlespacing
 \begin{center}
 \line(1,0){150}\\
 Figure 1 in here\\
 \line(1,0){150}
 \end{center}
+}
 
 \section*{Conclusion}
 

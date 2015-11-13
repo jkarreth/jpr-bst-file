@@ -75,7 +75,8 @@ FUNCTION {format.grepmi}
     }{ % Otherwise, attempt the trick
         %% Now the trick. Interpret "First Medium"
         %% as if "Medium" were a last name, and abbreviate it
-        fm #1 "{ff }{l}" format.name$ 'tt :=   %% And store the result in tt
+        fm #1 "{ff }{ll}" format.name$ 'tt :=
+           %% And store the result in tt
         %% Consider the particular case in which no Medium name is present
         %% In this case, "First" will be interpreted as a last name, and
         %% thus abbreviated. This can be detected because the resulting
@@ -447,7 +448,7 @@ FUNCTION {format.rem.names}
       format.grepmi               % <-----
       #1 f format.name$ 't :=    
       nameptr #1 >
-      {numnames #4 <
+      {numnames #3 <
         {namesleft #1 >
         { ", " * t * }
         { t "others" =
@@ -497,6 +498,7 @@ FUNCTION {format.authors}
   if$
 }
 
+
 FUNCTION {format.authors.2}
 { author empty$
     { "" }
@@ -539,37 +541,43 @@ FUNCTION {format.editors}
   if$
 }
 
+
 FUNCTION {format.editors.dot}
 { editor empty$
     { "" }
-    { editor format.names
+    { editor #1 "{vv~}{ll}{, jj}{, ff}" format.name$
+      format.grepmi                                    
+      #1 "{vv~}{ll}{, jj}{, ff}" format.name$          
+      "{ff }{vv~}{ll}{, jj}" editor format.rem.names
       editor num.names$ #1 >
-    { " (eds)." * }
-    { " (ed.)." * }
+    { ", eds" * }
+    { ", ed." * }
       if$
     }
   if$
 }
 
-FUNCTION {format.title}
-{ title empty$
-    { "" }
-    { title "t" change.case$ }
-%    { title add.period$ }
-  if$
-}
+
+
+%FUNCTION {format.title}
+%{ title empty$
+%    { "" }
+%    { title "t" change.case$ }
+%%    { title add.period$ }
+%  if$
+%}
 
 % Note that the APA style requres case changes
 % in article titles. The following does not
 % change cases. If you perfer it, uncomment the
 % following and comment out the above.
 
-%FUNCTION {format.title}
-%{ title empty$
-%    { "" }
-%    { title }
-%  if$
-%}
+FUNCTION {format.title}
+{ title empty$
+    { "" }
+    { title }
+  if$
+}
 
 FUNCTION {n.dashify}
 { 't :=

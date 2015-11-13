@@ -1,10 +1,14 @@
+#!/usr/local/bin/python
+
+# Pre-Processing Python Script
+
+# Modules
 from sys import argv
+import re
 
-#filename = '/Users/baobaozhang/Dropbox/jpr-bst-file/tests/my_test.bib'
-#new_file_name = '/Users/baobaozhang/Dropbox/jpr-bst-file/tests/my_test_py.bib'
-
-filename = raw_input("Original bib file:")
-new_file_name = raw_input("New bib file:")
+# Inputs
+filename = raw_input("Original bib file: ")
+new_file_name = raw_input("New bib file: ")
 
 # States Dictionary
 states = {
@@ -80,11 +84,28 @@ def multipleReplace(text, wordDict):
         text = text.replace(key, wordDict[key])
     return text
 
-# Go Through Each Line and Fine and Replace
+# Capitalize Function
+def uppercase(matchobj):
+    return matchobj.group(0).upper()
+
+def capitalize(s):
+    return re.sub('^([a-z])|[\.|\?|\!|\:]\s*([a-z])|\s+([a-z])(?=\.)', uppercase, s)
+
+# Go Through Each Line and Fine and Replace Problems
 with open(new_file_name, 'a') as n_file:
         with open(filename) as f:
             for line in f:
-                if 'address' in line:
+                if 'author' in str.lower(line) or 'editor' in str.lower(line):
+                    temp = line.replace(".", "")
+                    m = re.search("[A-Z]\s[A-Z]\s", temp)
+                    if m:
+                        found = m.group(0)
+                        n_file.write(re.sub(found, "".join(found.split())+' ', temp))
+                    else:
+                        n_file.write(temp);
+                elif 'title' in str.lower(line):
+                    n_file.write(capitalize(line));
+                elif 'address' in str.lower(line):
                         if 'New York, ' in line or '{New York' in line:
                                 result = 'address = {New York},\n';
                                 n_file.write(result)

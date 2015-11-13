@@ -1,6 +1,6 @@
 @article{journalarticle,
-  title={This Is A Journal Article},
-  author={Annie Aaron Anderson and Bobby Burt and Catherine Cate Cindle},
+  title={A journal article: How to cite papers},
+  author={Annie A Anderson and Bobby Burt and Catherine Cate Cindle},
   journal={Journal Article},
   volume={1},
   number={1},
@@ -12,15 +12,15 @@
 @book{book,
 author = {Devin Dee and Ellen East and Fred Fredrick Fitz and Genny Graham},
 title = {Book},
-address = {Princeton, New Jersey},
+address = {Princeton, NJ},
 publisher = {Book Publisher},
 year = {2004},
 edition = {2nd Edition}
 }
 
 @incollection{incollection,
-author = {Harry Henri},
-title = {An Essay in a Book},
+author = {H Harry Henri},
+title = {An essay on research in the United Kingdom},
 booktitle = {A Collection of Essays in a Book},
 editor = {Ida Inman},
 address = {New York},
@@ -30,8 +30,8 @@ pages = {9--33}
 }
 
 @techreport{workingpaper,
-author = {Lynn Lens Lee and Martha Morris},
-title = {A Working Paper},
+author = {Lynn Lens Lee and Martha WV Morris},
+title = {A working paper? How to present your work},
 type = {Working Paper},
 institution = {Department of Working Papers, Working Papers University},
 year = {2014},
@@ -47,11 +47,20 @@ URL = {www.working.edu/lee/newtheory.pdf}
 
 
 @articlenews{newsarticle,
-author = {Nancy Norton},
+author = {Nancy WM Norton},
 title = {A Newspaper Article},
 journal = {News Article Times},
 year = {2009},
 month = {4 December},
 URL = {\url{http://newsarticletimes.com/dec-4-news.html}}
+}
+
+@book{edittedvolume,
+author = {},
+editor = {Pearson Pears Potter and Quincy Quince},
+title = {An Editted Volume},
+address = {Cambridge, MA},
+publisher = {Book Publisher},
+year = {2011}
 }
 
