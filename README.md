@@ -117,7 +117,7 @@ Below are examples of each reference type:
 
 ```
 @article{journalarticle,
-  title={This Is A Journal Article},
+  title={This is a journal article},
   author={Annie Anderson and Bobby Burt and Catherine Cate Cindle},
   journal={Journal Article},
   volume={1},
@@ -126,6 +126,10 @@ Below are examples of each reference type:
   year={2014},
 }
 ```
+
+User must decide whether they want to abbreviate the first name and middle name when entering a name in the `author` field. The .bst file will generate whatever the user inputs in the `author` field. If the user inputs a full middle name in the `author` field, the full middle name will be generated in the bibliography. 
+
+For the `title` field, the Python script will ensure proper capitalization; however, users should *not* to capitalize words that are not the first word or proper nouns. 
 
 #### Book
 
@@ -149,7 +153,7 @@ Note that the address should include the city; if the city is in the United Stat
 ```
 @incollection{incollection,
 author = {Harry Henri},
-title = {An Essay in a Book},
+title = {An essay in a book},
 booktitle = {A Collection of Essays in a Book},
 editor = {Ida Inman},
 address = {New York},
