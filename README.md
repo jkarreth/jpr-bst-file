@@ -171,7 +171,7 @@ Note that the address should include the city and the two-letter state or countr
 ```
 @techreport{workingpaper,
 author = {Lynn Lens Lee and Martha Morris},
-title = {A Working Paper},
+title = {A working paper},
 type = {Working Paper},
 institution = {Department of Working Papers, Working Papers University},
 year = {2014},
@@ -186,7 +186,7 @@ Note that `type` must be be `Working Paper`. Include both the department and the
 ```
 @misc{webresource,
        author = "{Web Resource Organization}",
-       title = "{A Report on the Web}",
+       title = "{A report on the web}",
        year = {2012},
        url = {\url{www.webreports.org/2012_report}}
 }
@@ -199,7 +199,7 @@ The `articlenews` reference type was especially created for this .bst. It is not
 ```
 @articlenews{newsarticle,
 author = {Nancy Norton},
-title = {A Newspaper Article},
+title = {A newspaper article},
 journal = {News Article Times},
 year = {2009},
 month = {4 December},
