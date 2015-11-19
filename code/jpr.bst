@@ -3,7 +3,7 @@
 %$$$ update (11.17.2014) 
 %$$$ update (05.20.2015) 
 % // Original version by Steven Miller
-% // Tweaks made by Allan Dafoe and Baobao Zhang (Yale University).
+% // Tweaks made by Baobao Zhang and Allan Dafoe (Yale University).
 %
 % This *.bst file will allow the following JPR citations.
 % 1) ARTICLE
@@ -559,25 +559,25 @@ FUNCTION {format.editors.dot}
 
 
 
-%FUNCTION {format.title}
-%{ title empty$
-%    { "" }
-%    { title "t" change.case$ }
-%%    { title add.period$ }
-%  if$
-%}
+FUNCTION {format.title}
+{ title empty$
+    { "" }
+    { title "t" change.case$ }
+%    { title add.period$ }
+  if$
+}
 
 % Note that the APA style requres case changes
 % in article titles. The following does not
 % change cases. If you perfer it, uncomment the
 % following and comment out the above.
 
-FUNCTION {format.title}
-{ title empty$
-    { "" }
-    { title }
-  if$
-}
+%FUNCTION {format.title}
+%{ title empty$
+%    { "" }
+%    { title }
+%  if$
+%}
 
 FUNCTION {n.dashify}
 { 't :=

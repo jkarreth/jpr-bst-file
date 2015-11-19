@@ -10,6 +10,8 @@ import re
 filename = raw_input("Original bib file: ")
 new_file_name = raw_input("New bib file: ")
 
+filename = '/Users/baobaozhang/Dropbox/jpr-bst-file/example_latex/bad_bib.bib'
+new_file_name = '/Users/baobaozhang/Dropbox/jpr-bst-file/example_latex/good_bib.bib'
 # States Dictionary
 states = {
         'AK': 'Alaska',
@@ -86,35 +88,35 @@ def multipleReplace(text, wordDict):
 
 # Capitalize Function
 def uppercase(matchobj):
-    return matchobj.group(0).upper()
+    temp = matchobj.group(0).upper()
+    return '{'+temp+'}'
 
 def capitalize(s):
     return re.sub('^([a-z])|[\.|\?|\!|\:]\s*([a-z])|\s+([a-z])(?=\.)', uppercase, s)
+
 
 # Go Through Each Line and Fine and Replace Problems
 with open(new_file_name, 'a') as n_file:
         with open(filename) as f:
             for line in f:
-                if 'author' in str.lower(line) or 'editor' in str.lower(line):
-                    temp = line.replace(".", "")
+                if 'author =' in str.lower(line) or 'editor =' in str.lower(line) or 'author=' in str.lower(line) or 'editor=' in str.lower(line):
+                    temp = line.replace(".", "");
                     m = re.search("[A-Z]\s[A-Z]\s", temp)
                     if m:
-                        found = m.group(0)
+                        found = m.group(0);
                         n_file.write(re.sub(found, "".join(found.split())+' ', temp))
                     else:
                         n_file.write(temp);
-                elif 'title' in str.lower(line):
-                    n_file.write(capitalize(line));
-                elif 'address' in str.lower(line):
+                elif 'title =' in str.lower(line) or 'title=' in str.lower(line):
+                    b_index = line.find('{');
+                    n_file.write(line[0:b_index+1]+capitalize(line[(b_index+1):len(line)]));
+                elif 'address =' in str.lower(line) or 'address=' in str.lower(line):
                         if 'New York, ' in line or '{New York' in line:
-                                result = 'address = {New York},\n';
-                                n_file.write(result)
+                                n_file.write('address = {New York},\n');
                         else:
-                                result = multipleReplace(line, states_dic)
-                                n_file.write(result)
+                                n_file.write(multipleReplace(line, states_dic));
                 else:
-                        result = multipleReplace(line, states_dic)
-                        n_file.write(result)
+                        n_file.write(multipleReplace(line, states_dic));
 
 
 

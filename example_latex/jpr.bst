@@ -559,25 +559,25 @@ FUNCTION {format.editors.dot}
 
 
 
-%FUNCTION {format.title}
-%{ title empty$
-%    { "" }
-%    { title "t" change.case$ }
-%%    { title add.period$ }
-%  if$
-%}
+FUNCTION {format.title}
+{ title empty$
+    { "" }
+    { title "t" change.case$ }
+%    { title add.period$ }
+  if$
+}
 
 % Note that the APA style requres case changes
 % in article titles. The following does not
 % change cases. If you perfer it, uncomment the
 % following and comment out the above.
 
-FUNCTION {format.title}
-{ title empty$
-    { "" }
-    { title }
-  if$
-}
+%FUNCTION {format.title}
+%{ title empty$
+%    { "" }
+%    { title }
+%  if$
+%}
 
 FUNCTION {n.dashify}
 { 't :=

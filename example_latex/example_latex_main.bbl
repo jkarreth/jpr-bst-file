@@ -2,8 +2,8 @@
 
 \bibitem[\protect\citeauthoryear{Anderson, Burt \& Cindle}{Anderson, Burt \&
   Cindle}{2014}]{journalarticle}
-Anderson, Annie~A; Bobby Burt   \& Catherine~Cate Cindle (2014) A journal
-  article: How to cite papers.
+Anderson, Annie~A; Bobby Burt   \& Catherine~Cate Cindle (2014) {A} journal
+  article{: H}ow to cite papers.
 \newblock {\em Journal Article} { 1\/}(1): 1--10.
 
 \bibitem[\protect\citeauthoryear{Dee, East, Fitz \& Graham}{Dee
@@ -13,30 +13,29 @@ Dee, Devin; Ellen East, Fred~Fredrick Fitz   \& Genny Graham (2004) {\em {
 \newblock Princeton, NJ: Book Publisher.
 
 \bibitem[\protect\citeauthoryear{Henri}{Henri}{2004}]{incollection}
-Henri, H~Harry (2004) An essay on research in the United Kingdom.
+Henri, H~Harry (2004) An essay on research in the {United Kingdom}.
 \newblock In: Ida Inman (ed.) {\em A Collection of Essays in a Book}. New York:
   Incollection Book Publisher,  9--33.
 
 \bibitem[\protect\citeauthoryear{Lee \& Morris}{Lee \&
   Morris}{2014}]{workingpaper}
-Lee, Lynn~Lens  \& Martha~WV Morris (2014) A working paper? How to present your
-  work.
+Lee, Lynn~Lens  \& Martha~WV Morris (2014) A working paper{? H}ow to present
+  your work.
 \newblock Working paper.
 \newblock Department of Working Papers, Working Papers University
   ({www.working.edu/lee/newtheory.pdf}).
 
 \bibitem[\protect\citeauthoryear{Norton}{Norton}{2009}]{newsarticle}
-Norton, Nancy~WM (2009) A Newspaper Article.
+Norton, Nancy~WM (2009) A newspaper article.
 \newblock {\em News Article Times} 4 December
   ({\url{http://newsarticletimes.com/dec-4-news.html}}).
+
+\bibitem[\protect\citeauthoryear{Organization}{Organization}{2012}]{webresource}
+Organization, Web~Resource (2012) A report on the web
+  ({\url{www.webreports.org/2012_report}}).
 
 \bibitem[\protect\citeauthoryear{}{Potter \& Quince}{2011}]{edittedvolume}
 Potter, Pearson~Pears  \& Quincy Quince, eds (2011) {\em An Editted Volume}.
 \newblock Cambridge, MA: Book Publisher.
-
-\bibitem[\protect\citeauthoryear{{Web Resource Organization}}{{Web Resource
-  Organization}}{2012}]{webresource}
-{Web Resource Organization} (2012) {A Report on the Web}
-  ({\url{www.webreports.org/2012_report}}).
 
 \end{thebibliography}

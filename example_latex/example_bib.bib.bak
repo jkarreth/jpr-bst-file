@@ -1,5 +1,5 @@
 @article{journalarticle,
-  title={A journal article: How to cite papers},
+  title={{A} journal article{: H}ow to cite papers},
   author={Annie A Anderson and Bobby Burt and Catherine Cate Cindle},
   journal={Journal Article},
   volume={1},
@@ -20,7 +20,7 @@ edition = {2nd Edition}
 
 @incollection{incollection,
 author = {H Harry Henri},
-title = {An essay on research in the United Kingdom},
+title = {An Essay on Research in the United Kingdom},
 booktitle = {A Collection of Essays in a Book},
 editor = {Ida Inman},
 address = {New York},
@@ -31,7 +31,73 @@ pages = {9--33}
 
 @techreport{workingpaper,
 author = {Lynn Lens Lee and Martha WV Morris},
-title = {A working paper? How to present your work},
+title = {A Working paper{? H}ow to present your work},
+type = {Working Paper},
+institution = {Department of Working Papers, Working Papers University},
+year = {2014},
+URL = {www.working.edu/lee/newtheory.pdf}
+}
+
+@misc{webresource,
+       author = "{Web Resource Organization}",
+       title = "{A Report on the Web}",
+       year = {2012},
+       url = {\url{www.webreports.org/2012_report}}
+}
+
+
+@articlenews{newsarticle,
+author = {Nancy WM Norton},
+title = {A Newspaper Article},
+journal = {News Article Times},
+year = {2009},
+month = {4 December},
+URL = {\url{http://newsarticletimes.com/dec-4-news.html}}
+}
+
+@book{edittedvolume,
+author = {},
+editor = {Pearson Pears Potter and Quincy Quince},
+title = {An Editted Volume},
+address = {Cambridge, MA},
+publisher = {Book Publisher},
+year = {2011}
+}
+
+@article{journalarticle,
+  title={{A} journal article{: H}ow to cite papers},
+  author={Annie A Anderson and Bobby Burt and Catherine Cate Cindle},
+  journal={Journal Article},
+  volume={1},
+  number={1},
+  pages={1-10},
+  year={2014},
+}
+
+ 
+@book{book,
+author = {Devin Dee and Ellen East and Fred Fredrick Fitz and Genny Graham},
+title = {Book},
+address = {Princeton, NJ},
+publisher = {Book Publisher},
+year = {2004},
+edition = {2nd Edition}
+}
+
+@incollection{incollection,
+author = {H Harry Henri},
+title = {An Essay on Research in the United Kingdom},
+booktitle = {A Collection of Essays in a Book},
+editor = {Ida Inman},
+address = {New York},
+publisher = {Incollection Book Publisher},
+year = {2004},
+pages = {9--33}
+}
+
+@techreport{workingpaper,
+author = {Lynn Lens Lee and Martha WV Morris},
+title = {A Working paper{? H}ow to present your work},
 type = {Working Paper},
 institution = {Department of Working Papers, Working Papers University},
 year = {2014},
