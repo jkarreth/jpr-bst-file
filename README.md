@@ -117,13 +117,13 @@ Below are examples of each reference type:
 
 ```
 @article{journalarticle,
-  title={This is a journal article},
-  author={Annie Anderson and Bobby Burt and Catherine Cate Cindle},
-  journal={Journal Article},
-  volume={1},
-  number={1},
-  pages={1-10},
-  year={2014},
+title={This is a journal article},
+author={Annie Anderson and Bobby Burt and Catherine Cate Cindle},
+journal={Journal Article},
+volume={1},
+number={1},
+pages={1-10},
+year={2014},
 }
 ```
 
