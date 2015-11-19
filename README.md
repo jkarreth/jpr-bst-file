@@ -14,7 +14,7 @@ http://file.prio.no/journals/JPR/Technical-Requirements.pdf
 
 ## Downloads
 
-Download the [pre-processing Python script](https://raw.githubusercontent.com/13bzhang/jpr-bst-file/master/code/pre_process.py) and the [.bst file](https://github.com/13bzhang/jpr-bst-file/blob/master/code/jpr.bst). Save them to the same folder as the .tex document you are working on.
+Download the [pre-processing Python script](https://raw.githubusercontent.com/13bzhang/jpr-bst-file/master/code/pre_process.py) for Python 2 and the [.bst file](https://github.com/13bzhang/jpr-bst-file/blob/master/code/jpr.bst). Save them to the same folder as the .tex document you are working on.
 
 ## Pre-processing your .bib file
 
@@ -26,7 +26,7 @@ In terminal, change the directory to the folder with the "pre_process.py" Python
 python pre_process.py
 ```
 
-Note that we are using Python 2. You will be prompted to enter the location and name of the original .bib file and the new .bib file:
+You will be prompted to enter the location and name of the original .bib file and the new .bib file:
 
 ```
 Original bib file: 
@@ -129,7 +129,7 @@ Below are examples of each reference type:
 
 User must decide whether they want to abbreviate the first name and middle name when entering a name in the `author` field. The .bst file will generate whatever the user inputs in the `author` field. If the user inputs a full middle name in the `author` field, the full middle name will be generated in the bibliography. 
 
-For the `title` field, the Python script will ensure proper capitalization; however, users should *not* to capitalize words that are not the first word or proper nouns. 
+In the `title` field, users should enclose proper nouns in brackets, like such `title = {A history of the {United States}}`. This is to ensure proper nouns appear capitalized in the bibliography.  
 
 #### Book
 
@@ -185,10 +185,10 @@ Note that `type` must be be `Working Paper`. Include both the department and the
 
 ```
 @misc{webresource,
-       author = "{Web Resource Organization}",
-       title = "{A report on the web}",
-       year = {2012},
-       url = {\url{www.webreports.org/2012_report}}
+author = {Web Resource Organization},
+title = {A report on the web},
+year = {2012},
+url = {\url{www.webreports.org/2012_report}}
 }
 ```
 
