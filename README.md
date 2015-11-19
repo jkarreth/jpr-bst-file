@@ -26,7 +26,7 @@ In terminal, change the directory to the folder with the "pre_process.py" Python
 python pre_process.py
 ```
 
-You will be prompted to enter the location and name of the original .bib file and the new .bib file:
+Note we are using Python 2. You will be prompted to enter the location and name of the original .bib file and the new .bib file:
 
 ```
 Original bib file: 
