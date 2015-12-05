@@ -112,11 +112,15 @@ with open(new_file_name, 'a') as n_file:
                     n_file.write(line[0:b_index+1]+capitalize(line[(b_index+1):len(line)]));
                 elif 'address =' in str.lower(line) or 'address=' in str.lower(line):
                         if 'New York, ' in line or '{New York' in line:
-                                n_file.write('address = {New York},\n');
+                            n_file.write('address = {New York},\n');
                         else:
-                                n_file.write(multipleReplace(line, states_dic));
+                            if "," in line:
+                                line_part = line.partition(",");
+                                n_file.write("".join(line_part[0:2])+multipleReplace(line_part[2], states_dic));
+                            else:
+                                n_file.write(line);
                 else:
-                        n_file.write(multipleReplace(line, states_dic));
+                    n_file.write(line);
 
 
 

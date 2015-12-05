@@ -10,12 +10,12 @@ Anderson, Annie~A; Bobby Burt   \& Catherine~Cate Cindle (2014) {A} journal
   et~al.}{2004}]{book}
 Dee, Devin; Ellen East, Fred~Fredrick Fitz   \& Genny Graham (2004) {\em {
   Book\/} (2nd Edition ed.).}
-\newblock Princeton, NJ: Book Publisher.
+\newblock Washington, DC: Book Publisher.
 
 \bibitem[\protect\citeauthoryear{Henri}{Henri}{2004}]{incollection}
 Henri, H~Harry (2004) An essay on research in the {United Kingdom}.
 \newblock In: Ida Inman (ed.) {\em A Collection of Essays in a Book}. New York:
-  Incollection Book Publisher,  9--33.
+  New York University Press,  9--33.
 
 \bibitem[\protect\citeauthoryear{Lee \& Morris}{Lee \&
   Morris}{2014}]{workingpaper}
@@ -36,6 +36,6 @@ Organization, Web~Resource (2012) A report on the web
 
 \bibitem[\protect\citeauthoryear{}{Potter \& Quince}{2011}]{edittedvolume}
 Potter, Pearson~Pears  \& Quincy Quince, eds (2011) {\em An Editted Volume}.
-\newblock Cambridge, MA: Book Publisher.
+\newblock Iowa City, IA: University of Iowa Press.
 
 \end{thebibliography}
