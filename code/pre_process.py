@@ -83,6 +83,7 @@ def multipleReplace(text, wordDict):
     with the associated value, return the changed text
     """
     for key in wordDict:
+        text = text.replace(".","")
         text = text.replace(key, wordDict[key])
     return text
 
@@ -92,11 +93,11 @@ def uppercase(matchobj):
     return '{'+temp+'}'
 
 def capitalize(s):
-    return re.sub('^([a-z])|[\.|\?|\!|\:]\s*([a-z])|\s+([a-z])(?=\.)', uppercase, s)
+    return re.sub('^((?i)[a-z])|[\.|\?|\!|\:]\s*((?i)[a-z])|\s+((?i)[a-z])(?=\.)', uppercase, s)
 
 
 # Go Through Each Line and Fine and Replace Problems
-with open(new_file_name, 'a') as n_file:
+with open(new_file_name, 'w') as n_file:
         with open(filename) as f:
             for line in f:
                 if 'author =' in str.lower(line) or 'editor =' in str.lower(line) or 'author=' in str.lower(line) or 'editor=' in str.lower(line):
