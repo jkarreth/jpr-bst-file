@@ -7,8 +7,11 @@ from sys import argv
 import re
 
 # Inputs
-filename = '/Users/johanneskarreth/Documents/Dropbox/Uni/1 - Papers/HSIGOs and CPAs/Paper/Mediation and Signing/JPR submission/Final/JPR style/references_old.bib'
-new_file_name = '/Users/johanneskarreth/Documents/Dropbox/Uni/1 - Papers/HSIGOs and CPAs/Paper/Mediation and Signing/JPR submission/Final/JPR style/references_new.bib'
+filename = raw_input("Original bib file: ")
+new_file_name = raw_input("New bib file: ")
+
+filename = '/Users/baobaozhang/Dropbox/jpr-bst-file/example_latex/bad_bib.bib'
+new_file_name = '/Users/baobaozhang/Dropbox/jpr-bst-file/example_latex/good_bib.bib'
 # States Dictionary
 states = {
         'AK': 'Alaska',
